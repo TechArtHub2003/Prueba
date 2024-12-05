@@ -1,0 +1,180 @@
+/* Contenedor principal */
+.artistasima-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Información de la asociación */
+.artistasima-info-asociacion {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 5px;
+  margin-bottom: 2rem;
+  background-color: #e8d6ff;
+}
+
+.artistasima-logo {
+  width: 140px;
+  padding: 10px;
+}
+
+.artistasima-info-asociacion h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.artistasima-info-asociacion h2 {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+/* Contenedor principal de los artistas */
+.artistasima-main-content h2 {
+  padding: 10px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+/* Contenedor de todos los artistas */
+.artistasima-artistas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* Estilo de cada bloque de artista */
+.artistasima-artista {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.artistasima-artista:hover {
+  transform: scale(1.05);
+}
+
+/* Contenedor del video */
+.artistasima-video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Relación 16:9 */
+  background-color: #000;
+}
+
+.artistasima-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Información de los artistas */
+.artistasima-datos-artista {
+  padding: 20px;
+  text-align: center;
+}
+
+.artistasima-datos-artista h3 {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.artistasima-datos-artista p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.artistasima-social-icons {
+  margin-top: 15px;
+}
+
+.artistasima-social-icons a {
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #555;
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+
+.artistasima-social-icons a:hover {
+  color: #8065a3;
+}
+
+/* Títulos de la sección */
+.artistasima-artistas h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilos responsivos para móviles */
+@media (max-width: 768px) {
+  /* Cambio a una sola columna */
+  .artistasima-artistas {
+    grid-template-columns: 1fr;
+  }
+
+  .artistasima-datos-artista h3 {
+    font-size: 1.4rem;
+  }
+
+  .artistasima-datos-artista p {
+    font-size: 0.9rem;
+  }
+
+  .artistasima-social-icons a {
+    font-size: 1rem;
+  }
+
+  /* Ajustes de los márgenes */
+  .artistasima-info-asociacion h1 {
+    font-size: 1.5rem;
+  }
+
+  .artistasima-info-asociacion h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .artistasima-info-asociacion {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .artistasima-logo {
+    width: 95px;
+  }
+
+  .artistasima-info-asociacion h1 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .artistasima-info-asociacion h2 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .artistasima-datos-artista h3 {
+    font-size: 1.2rem;
+  }
+
+  .artistasima-datos-artista p {
+    font-size: 0.85rem;
+  }
+
+  .artistasima-social-icons a {
+    font-size: 0.9rem;
+  }
+}

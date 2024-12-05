@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #dacbf785;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+}
+
+.colabs-grid {
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.colab-card {
+  width: 90%;
+  max-width: 320px;
+  min-height: 400px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease-in-out;
+  margin: 0 auto;
+}
+
+.colab-card:hover {
+  transform: translateY(-10px);
+}
+
+.colab-card-image {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  border-radius: 20%;
+  margin-bottom: 15px;
+}
+
+.colab-card-title {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.colab-card-description {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-top: 8px;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.red-so {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.red-so a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #dacbf7;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 12px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.red-so a:hover {
+  background-color: #c5aef3;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.red-so a:active {
+  background-color: #bb27ff;
+  transform: scale(1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .colab-card {
+    width: 90%;
+    max-width: 320px;
+    min-height: 380px;
+    padding: 15px;
+  }
+
+  .colab-card-title {
+    font-size: 16px;
+  }
+
+  .red-so a {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+.colab-card-info {
+  font-size: 18px;
+  color: #007bff;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.3s ease;
+  padding: 5px 0;
+}
+
+.colab-card-info:hover {
+  color: #0056b3;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .colab-card-info {
+    font-size: 16px;
+    animation: moveHorizontally 2s ease-in-out infinite !important;
+    will-change: transform;
+  }
+
+  @keyframes moveHorizontally {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}

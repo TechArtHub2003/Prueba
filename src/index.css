@@ -1,0 +1,579 @@
+/* General */
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #dacbf785;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dacbf7;
+  padding: 10px 20px;
+  color: rgb(0, 0, 0);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  animation: slideDown 1s ease-out; /* Agrega la animación al header */
+}
+
+.header:hover {
+  background-color: #b998fa;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+.logo img {
+  height: 50px; /* Ajusta la altura del logo */
+  width: auto; /* Mantiene la proporción */
+  animation: fadeInLogo 2s ease-out; /* Agrega la animación al logo */
+}
+/* Logo cultura */
+.culturaIMA {
+  height: 169px; /* Ajusta la altura del logo */
+  width: auto; /* Mantiene la proporción */
+  animation: fadeInLogo 2s ease-out; /* Agrega la animación al logo */
+}
+/* Logo cultura */
+.mediosIMA {
+  height: 140px; /* Ajusta la altura del logo */
+  width: auto; /* Mantiene la proporción */
+  animation: fadeInLogo 2s ease-out; /* Agrega la animación al logo */
+}
+
+/* Navegación */
+.nav {
+  display: flex;
+  gap: 15px;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  animation: fadeInNav 1.5s ease-out; /* Agrega animación para la navegación */
+}
+
+.nav a {
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav a:hover {
+  background-color: #dacbf7;
+  color: #1d3557;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  animation: fadeInHamburger 2s ease-out; /* Agrega animación al menú hamburguesa */
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: black !important;
+  border-radius: 2px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hamburger:hover span {
+  background-color: #888888;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Animaciones */
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLogo {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInNav {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInHamburger {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    flex-direction: column;
+    background-color: #c397f5e8;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 10px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  .nav.open {
+    display: flex;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Main Banner */
+.main-banner {
+  position: relative; /* Necesario para posicionar el pseudo-elemento */
+  text-align: center;
+  background: url(../public/img/banner/img1.jpg) no-repeat center center;
+  background-size: cover;
+  color: white;
+  padding: 5rem 2rem;
+  border-radius: 10px;
+  margin: 20px;
+  animation: slideIn 1s ease-out;
+  overflow: hidden; /* Evita que el contenido se salga del contenedor */
+}
+
+.main-banner p {
+  font-size: 22px;
+}
+
+.main-banner h1 {
+  font-size: 2.3rem;
+}
+
+.main-banner::before {
+  content: ""; /* Crea la capa */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Capa negra con 50% de opacidad */
+  border-radius: inherit; /* Respeta las esquinas redondeadas */
+  z-index: 1; /* Coloca la capa debajo del texto */
+}
+
+.main-banner * {
+  position: relative; /* Asegura que el contenido esté sobre el pseudo-elemento */
+  z-index: 2;
+}
+
+@keyframes slideIn {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* Section Buttons */
+.section-buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  flex-wrap: wrap;
+  animation: fadeIn 1.5s ease-in-out; /* Animación de aparición */
+}
+
+.button {
+  position: relative;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; /* Efecto de transición suave */
+}
+
+.button:hover {
+  transform: translateY(-10px) scale(1.1); /* Eleva y agranda el botón */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Sombra al pasar el cursor */
+  color: #ffcc00; /* Cambia el color del texto al hacer hover */
+}
+
+.circle {
+  width: 140px; /* Tamaño del círculo */
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e8e1f7, #c7b3ee); /* Fondo degradado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 17px 17px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra base */
+  position: relative;
+  overflow: hidden; /* Evita que el brillo sobresalga */
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease; /* Efecto de transición suave en el círculo */
+}
+
+.circle:hover {
+  background: linear-gradient(
+    135deg,
+    #a97eff,
+    #c7b3ee
+  ); /* Cambio de color al hacer hover */
+  transform: rotate(15deg); /* Le da un giro al círculo al pasar el cursor */
+}
+
+.circle::after {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+  transform: rotate(45deg);
+  animation: shine 2s infinite linear; /* Movimiento de brillo */
+}
+
+.circle:hover::after {
+  animation-play-state: paused; /* Pausa el brillo al pasar el cursor */
+}
+
+@keyframes shine {
+  0% {
+    top: -50%;
+    left: -50%;
+  }
+  100% {
+    top: 150%;
+    left: 150%;
+  }
+}
+
+button {
+  margin: 5px 5px;
+  background: #a97eff; /* Fondo de botón */
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+button:hover {
+  background: #c7b3ee; /* Cambia el color al hacer hover */
+  transform: scale(1.05); /* Efecto de aumento al pasar el cursor */
+}
+
+button:focus {
+  outline: none; /* Quita el borde azul del foco */
+}
+
+/* Footer */
+.footer {
+  background-color: #dacbf7; /* Fondo del footer */
+  color: white;
+  text-align: center;
+  padding: 20px;
+  animation: fadeInUp 1s ease-in-out; /* Animación de entrada */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  animation: fadeInOut 2s infinite ease-in-out; /* Animación sencilla */
+}
+
+.dots {
+  display: flex;
+  gap: 1rem; /* Espaciado entre íconos */
+  justify-content: center;
+  align-items: center;
+}
+
+.dots a {
+  display: inline-block;
+  width: 30px; /* Tamaño del contenedor del ícono */
+  height: 30px;
+}
+
+.dots a img {
+  width: 100%; /* Ajusta la imagen al contenedor */
+  height: 100%;
+  object-fit: contain; /* Mantiene la proporción de la imagen */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.dots a:hover img {
+  transform: scale(1.2); /* Efecto de zoom al pasar el cursor */
+  opacity: 0.8; /* Efecto de opacidad */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 1; /* Totalmente visible */
+  }
+  50% {
+    opacity: 0.5; /* Parcialmente visible */
+  }
+}
+
+.profile-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.auth-links {
+  display: flex;
+  gap: 10px;
+}
+
+/* Contenedor general */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Info de la asociación */
+.info-asociacion {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #ede7f6;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  justify-content: space-around;
+}
+
+.info-asociacion .logo {
+  width: 150px;
+  height: auto;
+}
+
+.info-asociacion div h1 {
+  font-size: 2rem;
+  color: #4a148c;
+  margin: 0;
+}
+
+.info-asociacion div h2 {
+  font-size: 1.5rem;
+  color: #7b1fa2;
+  margin: 0;
+}
+
+/* Contenido principal */
+.main-content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+/* Información del director */
+.director-info {
+  flex: 1; /* Toma una proporción del espacio disponible */
+  background: #f3e5f5;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.director-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.director-info h2 {
+  font-size: 1.5rem;
+  color: #4a148c;
+  margin-bottom: 10px;
+}
+
+.director-info p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.contact-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #7b1fa2;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.director-info h3 {
+  font-size: 1.2rem;
+  color: #7b1fa2;
+  margin-top: 15px;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px;
+}
+
+.icon a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.icon a:hover {
+  background-color: #7b1fa2;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Sección de descripción */
+.about {
+  text-align: justify;
+  flex: 2; /* Toma el doble de espacio que el director-info */
+  background: #ede7f6;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about h2 {
+  font-size: 1.8rem;
+  color: #4a148c;
+  margin-bottom: 10px;
+}
+
+.about p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .director-info,
+  .about {
+    flex: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .info-asociacion h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .info-asociacion .logo {
+    width: 100px !important;
+    height: auto !important;
+  }
+
+  .info-asociacion h2 {
+    font-size: 1rem !important;
+  }
+
+  .icon {
+    gap: 10px; /* Reduce el espacio entre los íconos */
+  }
+
+  .icon a {
+    width: 35px; /* Ajusta el tamaño del contenedor del ícono */
+    height: 35px;
+    font-size: 1.2rem; /* Ajusta el tamaño del ícono */
+  }
+}

@@ -1,0 +1,519 @@
+/* General */
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #dacbf785;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dacbf7;
+  padding: 10px 20px;
+  color: rgb(0, 0, 0);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  animation: slideDown 1s ease-out; /* Agrega la animación al header */
+}
+
+.header:hover {
+  background-color: #b998fa;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+.logo img {
+  height: 60px; /* Ajusta la altura del logo */
+  width: auto; /* Mantiene la proporción */
+  animation: fadeInLogo 2s ease-out; /* Agrega la animación al logo */
+}
+/* Logo cultura */
+.culturaIMA {
+  height: 215px; /* Ajusta la altura del logo */
+  width: auto; /* Mantiene la proporción */
+  animation: fadeInLogo 2s ease-out; /* Agrega la animación al logo */
+}
+/* Logo cultura */
+.mediosIMA {
+  height: 190px; /* Ajusta la altura del logo */
+  width: auto; /* Mantiene la proporción */
+  animation: fadeInLogo 2s ease-out; /* Agrega la animación al logo */
+}
+
+/* Navegación */
+.nav {
+  display: flex;
+  gap: 15px;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  animation: fadeInNav 1.5s ease-out; /* Agrega animación para la navegación */
+}
+
+.nav a {
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav a:hover {
+  background-color: #dacbf7;
+  color: #1d3557;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  animation: fadeInHamburger 2s ease-out; /* Agrega animación al menú hamburguesa */
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hamburger:hover span {
+  background-color: #8a75ff;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Animaciones */
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLogo {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInNav {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInHamburger {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    flex-direction: column;
+    background-color: #a760f7e8;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 10px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  .nav.open {
+    display: flex;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Main Banner */
+.main-banner {
+  position: relative; /* Necesario para posicionar el pseudo-elemento */
+  text-align: center;
+  background: url(../public/img/banner/img1.jpg) no-repeat center center;
+  background-size: cover;
+  color: white;
+  padding: 5rem 2rem;
+  border-radius: 10px;
+  margin: 20px;
+  animation: slideIn 1s ease-out;
+  transform-origin: top;
+  overflow: hidden; /* Para asegurarte de que el filtro no se salga del contenedor */
+}
+.main-banner p {
+  font-size: 22px;
+}
+.main-banner h1 {
+  font-size: 2.3rem;
+}
+.main-banner::before {
+  content: ""; /* Necesario para que el pseudo-elemento aparezca */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    213,
+    170,
+    253,
+    0.185
+  ); /* Cambia los valores para ajustar el color y la opacidad */
+  border-radius: inherit; /* Asegura que respete las esquinas redondeadas */
+  z-index: 1; /* Coloca el filtro debajo del contenido del banner */
+}
+
+.main-banner * {
+  position: relative; /* Asegura que el contenido esté sobre el filtro */
+  z-index: 2;
+}
+
+@keyframes slideIn {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* Section Buttons */
+.section-buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+  flex-wrap: wrap;
+  animation: fadeIn 1.5s ease-in-out; /* Animación de aparición */
+}
+
+.button {
+  position: relative;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; /* Efecto de transición suave */
+}
+
+.button:hover {
+  transform: translateY(-10px) scale(1.1); /* Eleva y agranda el botón */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Sombra al pasar el cursor */
+  color: #ffcc00; /* Cambia el color del texto al hacer hover */
+}
+
+.circle {
+  width: 190px; /* Tamaño del círculo */
+  height: 190px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e8e1f7, #c7b3ee); /* Fondo degradado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 17px 17px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra base */
+  position: relative;
+  overflow: hidden; /* Evita que el brillo sobresalga */
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease; /* Efecto de transición suave en el círculo */
+}
+
+.circle:hover {
+  background: linear-gradient(
+    135deg,
+    #a97eff,
+    #c7b3ee
+  ); /* Cambio de color al hacer hover */
+  transform: rotate(15deg); /* Le da un giro al círculo al pasar el cursor */
+}
+
+.circle::after {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+  transform: rotate(45deg);
+  animation: shine 2s infinite linear; /* Movimiento de brillo */
+}
+
+.circle:hover::after {
+  animation-play-state: paused; /* Pausa el brillo al pasar el cursor */
+}
+
+@keyframes shine {
+  0% {
+    top: -50%;
+    left: -50%;
+  }
+  100% {
+    top: 150%;
+    left: 150%;
+  }
+}
+
+button {
+  margin: 5px 5px;
+  background: #a97eff; /* Fondo de botón */
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+button:hover {
+  background: #c7b3ee; /* Cambia el color al hacer hover */
+  transform: scale(1.05); /* Efecto de aumento al pasar el cursor */
+}
+
+button:focus {
+  outline: none; /* Quita el borde azul del foco */
+}
+
+/* Footer */
+.footer {
+  background-color: #dacbf7; /* Fondo del footer */
+  color: white;
+  text-align: center;
+  padding: 20px;
+  animation: fadeInUp 1s ease-in-out; /* Animación de entrada */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  animation: fadeInOut 2s infinite ease-in-out; /* Animación sencilla */
+}
+
+.dots {
+  display: flex;
+  gap: 1rem; /* Espaciado entre íconos */
+  justify-content: center;
+  align-items: center;
+}
+
+.dots a {
+  display: inline-block;
+  width: 30px; /* Tamaño del contenedor del ícono */
+  height: 30px;
+}
+
+.dots a img {
+  width: 100%; /* Ajusta la imagen al contenedor */
+  height: 100%;
+  object-fit: contain; /* Mantiene la proporción de la imagen */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.dots a:hover img {
+  transform: scale(1.2); /* Efecto de zoom al pasar el cursor */
+  opacity: 0.8; /* Efecto de opacidad */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 1; /* Totalmente visible */
+  }
+  50% {
+    opacity: 0.5; /* Parcialmente visible */
+  }
+}
+
+.profile-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.auth-links {
+  display: flex;
+  gap: 10px;
+}
+
+/* Estilos para la sección de colaboradores */
+.colabs-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(220px, 1fr)
+  ); /* Ajuste de columnas */
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+  animation: fadeIn 1.5s ease-in-out;
+  background-color: #f9f4fc;
+  border-radius: 10px;
+}
+
+.colab-card {
+  background: #ffffff;
+  border: 1px solid #dacbf7;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 300px;
+  text-align: left;
+}
+
+.colab-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.colab-card-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.colab-card-content {
+  padding: 15px;
+}
+
+.colab-card-title {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0 0 10px;
+}
+
+.colab-card-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.colab-card-info {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 5px 0;
+  animation: slideInInfo 1s ease-in-out;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInInfo {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .colabs-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+  }
+
+  .colab-card {
+    max-width: 220px;
+  }
+
+  .colab-card-title {
+    font-size: 1rem;
+  }
+
+  .colab-card-description,
+  .colab-card-info {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .colabs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .colab-card {
+    max-width: 100%;
+  }
+}
